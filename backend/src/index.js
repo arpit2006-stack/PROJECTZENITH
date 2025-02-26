@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { connectDB } from "./lib/db.js";
 import authRoutes from "./routes/auth.routes.js";
+import cartRouter from "./routes/cart.routes.js";
 import bodyParser from "body-parser";
 
 const app = express();
@@ -17,6 +18,11 @@ app.use(bodyParser.json());
 
 // ✅ Use authentication routes
 app.use("/api/auth", authRoutes);
+
+
+// use add to cart 
+app.use("/api/cart", cartRouter);
+
 
 // ✅ Error handling middleware
 app.use((err, req, res, next) => {
