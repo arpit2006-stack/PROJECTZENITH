@@ -28,7 +28,7 @@ app.use("/api/admin",inventoryRoutes);
 =======
 
 // use add to cart 
-app.use("/api/cart", cartRouter);
+// app.use("/api/cart", cartRouter);
 
 >>>>>>> 28f9dc83b227a34ef974c776a1498daafb580ac4
 
