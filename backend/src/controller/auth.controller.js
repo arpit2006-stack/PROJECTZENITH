@@ -83,7 +83,7 @@ export const login = async (req, res, next) => {
       return;
     }
 
-    // generateToken(user._id, res);
+    generateToken(user._id, res);
 
     res.status(200).json({
       message: `Welcome Back ${user.fullName}`,
