@@ -5,7 +5,7 @@ import authRoutes from "./routes/auth.routes.js";
 <<<<<<< HEAD
 import inventoryRoutes from './routes/inventory.routes.js'
 =======
-import cartRouter from "./routes/cart.routes.js";
+// import cartRouter from "./routes/cart.routes.js";
 >>>>>>> 28f9dc83b227a34ef974c776a1498daafb580ac4
 import bodyParser from "body-parser";
 
