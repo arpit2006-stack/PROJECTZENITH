@@ -4,14 +4,14 @@ const CartSchema = new mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User", // ✅ Reference User model
+      ref: "User",
       required: true,
     },
     products: [
       {
         productId: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "Product", // ✅ Reference Product model
+          ref: "Product", 
           required: true,
         },
         quantity: {
@@ -26,7 +26,7 @@ const CartSchema = new mongoose.Schema(
       default: 0,
     },
   },
-  { timestamps: true } // ✅ Correct timestamp placement
+  { timestamps: true } 
 );
 
 const Cart = mongoose.model("Cart", CartSchema);
