@@ -2,7 +2,11 @@ import express from "express";
 import cors from "cors";
 import { connectDB } from "./lib/db.js";
 import authRoutes from "./routes/auth.routes.js";
+<<<<<<< HEAD
 import inventoryRoutes from './routes/inventory.routes.js'
+=======
+import cartRouter from "./routes/cart.routes.js";
+>>>>>>> 28f9dc83b227a34ef974c776a1498daafb580ac4
 import bodyParser from "body-parser";
 
 const app = express();
@@ -19,7 +23,14 @@ app.use(bodyParser.json());
 // ✅ Use authentication routes
 app.use("/api/auth", authRoutes);
 
+<<<<<<< HEAD
 app.use("/api/admin",inventoryRoutes);
+=======
+
+// use add to cart 
+app.use("/api/cart", cartRouter);
+
+>>>>>>> 28f9dc83b227a34ef974c776a1498daafb580ac4
 
 // ✅ Error handling middleware
 app.use((err, req, res, next) => {
