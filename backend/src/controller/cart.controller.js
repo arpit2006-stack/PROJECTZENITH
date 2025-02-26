@@ -1,47 +1,55 @@
-import cart from '../models/cart.model';
+import CartModel from '../models/cart.model.js';
+import ProductModel from '../models/inventory.model.js';
 
-import products from '../models/inventory-model'
+export const addtocart = async (req, res) => {
+    try {
+        const { userId, productId } = req.body;// Get user ID & product ID from request
 
-export const addtocart = async (req,res)=>{
-       try{if(!Product)
-       {
-        return res.status(404).json({
-            success : false,
-            message : "product not found",
+        //  Find the product
+        const product = await ProductModel.findById(productId);
+        if (!product) {
+            return res.status(404).json({
+                success: false,
+                message: "Product not found",
+            });
+        }
+
+         //  Find the user's cart
+        let userCart = await CartModel.findOne({ userId });
+
+        if (!userCart) {
+            // Create new cart if it doesn't exist
+            userCart = new CartModel({
+                userId,
+                products: [{ productId, quantity: 1 }],
+                total: product.price,
+            });
+        } else {
+            // Check if the product already exists in cart
+            const cartProduct = userCart.products.find((p) => p.productId.toString() === productId);
+
+            if (cartProduct) {
+                cartProduct.quantity += 1;//Increase quantity if product exists
+            } else {
+                userCart.products.push({ productId, quantity: 1 });  //Add new product
+            }
+
+            // Update total price
+            userCart.total += product.price;
+        }
+
+        await userCart.save();
+
+        res.status(200).json({
+            success: true,
+            message: "Product added to cart",
+            cart: userCart,
         });
 
-       }
-      
-       const cart = await cart.findOne(userId);
-       if(!cart){
-        const newcart = new cart({
-            userId,
-            ProductIds: [{ ProductIds}],
-            total: Product.price,
-        });
-        
-       }
-
-       const cartProduct = cart.products.find((p) => p.ProductIds.toString()===products);
-       
-       if(cartProduct) {
-        cartProduct.quantity += 1;  //x=x+1
-       }
-       else{
-        cart.products.push({ productID });
-        cart.total += Product.price;
-       }
-       await cart.save();
-       res.status(200).json({
-        success: true,
-        message:"product added to cart",
-        cart,
-       });
-
-    }catch(error){
-        res.status(400).json({
+    } catch (error) {
+        res.status(500).json({
             success: false,
-            message:error.message,
+            message: error.message,
         });
-       }   
+    }
 };

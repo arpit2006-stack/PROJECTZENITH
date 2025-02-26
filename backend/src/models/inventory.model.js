@@ -10,12 +10,12 @@ const inventorySchema = new mongoose.Schema(
             type:String,
         },
         price:{
-            type:String,
-            require:true,
+            type:Number,
+            required:true,
         },
         category:{
             type:String,
-            require:true,
+            required:true,
         }
     },
     {timestamps:true}

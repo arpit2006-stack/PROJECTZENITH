@@ -1,10 +1,8 @@
-import express, { Router } from 'express'
+import express from 'express';
+import { addtocart } from '../controller/cart.controller.js';
 
-import { addtocart } from '../controller/cart.controller'
+const router = express.Router(); // Correct usage of Router
 
-const router = express.Router();
+router.post("/add", addtocart);
 
-router.post("/add",addtocart);
-
-
-export default Router;
+export default router; // Correct export
