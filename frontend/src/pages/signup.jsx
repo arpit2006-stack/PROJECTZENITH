@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import axios from "../lib/axios";
 
 const AuthForm = () => {
   const [isSignUp, setIsSignUp] = useState(true);
@@ -7,14 +9,30 @@ const AuthForm = () => {
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
   const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const response = await axios.post("/api/auth/signup", {
+        fullName: formData.name,
+        email: formData.email,
+        password: formData.password,
+      });
+
+      alert(response.data.message);
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+      alert(error.response.data.message);
+    }
+
     setMessage(isSignUp ? "Sign-up successful!" : "Login successful!");
   };
 
@@ -30,6 +48,7 @@ const AuthForm = () => {
               type="text"
               name="name"
               placeholder="Full Name"
+              value={formData.name}
               onChange={handleChange}
               className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 shadow-sm"
               required
@@ -39,6 +58,7 @@ const AuthForm = () => {
             type="email"
             name="email"
             placeholder="Email"
+            value={formData.email}
             onChange={handleChange}
             className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 shadow-sm"
             required
@@ -47,6 +67,7 @@ const AuthForm = () => {
             type="password"
             name="password"
             placeholder="Password"
+            value={formData.password}
             onChange={handleChange}
             className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 shadow-sm"
             required
@@ -58,14 +79,18 @@ const AuthForm = () => {
             {isSignUp ? "Sign Up" : "Log In"}
           </button>
         </form>
-        {message && <p className="mt-4 text-center text-green-600 font-semibold">{message}</p>}
+        {message && (
+          <p className="mt-4 text-center text-green-600 font-semibold">
+            {message}
+          </p>
+        )}
         <p className="mt-4 text-center text-gray-600">
-          {isSignUp ? "Already have an account?" : "Don't have an account?"} 
-          <button 
+          {isSignUp ? "Already have an account?" : "Don't have an account?"}
+          <button
             onClick={() => setIsSignUp(!isSignUp)}
             className="text-blue-500 font-semibold ml-1 hover:underline"
           >
-            {isSignUp ? "Log in" : "Sign up"}
+            <NavLink to="/login">{isSignUp ? "Log in" : "Sign up"}</NavLink>
           </button>
         </p>
       </div>

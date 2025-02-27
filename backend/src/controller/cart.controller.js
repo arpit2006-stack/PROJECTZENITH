@@ -1,12 +1,16 @@
 import CartModel from '../models/cart.model.js';
-import ProductModel from '../models/inventory.model.js';
+import Inventory from '../models/inventory.model.js';
+import User from "../models/user.model.js";
+
 
 export const addtocart = async (req, res) => {
     try {
-        const { userId, productId } = req.body;// Get user ID & product ID from request
+        const userid = req.user._id;
+        // const productid = req.inventory._id;
+        // const { userId, productId } = req.body;// Get user ID & product ID from request
 
         //  Find the product
-        const product = await ProductModel.findById(productId);
+        const product = await Inventory.findById(productId);
         if (!product) {
             return res.status(404).json({
                 success: false,
@@ -15,7 +19,7 @@ export const addtocart = async (req, res) => {
         }
 
          //  Find the user's cart
-        let userCart = await CartModel.findOne({ userId });
+        const userCart = await CartModel.findOne({ userId });
 
         if (!userCart) {
             // Create new cart if it not exist

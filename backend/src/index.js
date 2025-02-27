@@ -10,14 +10,14 @@ import bodyParser from "body-parser";
 
 const app = express();
 
-// ✅ Enable CORS for frontend (http://localhost:5173)
+
 app.use(cors({
-    origin: "http://localhost:5173", // Allow only frontend requests
-    credentials: true, // Allow cookies, authorization headers
+    origin: "http://localhost:5173", 
+    credentials: true, 
 }));
 
-// ✅ Parse JSON requests
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // ✅ Use authentication routes
 app.use("/api/auth", authRoutes);
@@ -26,12 +26,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/admin",inventoryRoutes);
 
 
-// use add to cart 
+ 
 app.use("/api/cart", cartRouter);
 
 
-
-// ✅ Error handling middleware
 app.use((err, req, res, next) => {
     console.log(err.stack);
     const StatusCode = err.statusCode || 500;
