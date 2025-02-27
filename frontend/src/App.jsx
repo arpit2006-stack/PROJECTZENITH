@@ -12,8 +12,9 @@ import LoginForm from "./pages/login";
 import BrandSlider from "./components/sliderTwo";
 import Home from "./components/home";
 import CareerPage from "./pages/career";
-
-
+import AboutPage from "./pages/about";
+import ContactPage from "./pages/contact";
+import TermsAndConditions from "./pages/T&C";
 function App() {
   return (
     <>
@@ -27,6 +28,9 @@ function App() {
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/login" element={<LoginForm/>} />
           <Route path="/career" element={<CareerPage/>} />
+          <Route path="/about" element={<AboutPage/>} />
+          <Route path="/contact" element={<ContactPage/>} />
+          <Route path="/t&c" element={<TermsAndConditions/>} />
         </Routes>
       </main>
       <footer>
