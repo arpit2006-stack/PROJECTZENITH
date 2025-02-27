@@ -17,8 +17,8 @@ const Navbar = () => {
 
             
 
-            <div className="text-gray-900 text-2xl font-bold">
-              <a href="/">ZENITH</a></div>
+            <div className="w-30 h-10">
+              <a href="/"><img src={logo} alt="logo" /></a></div>
 
 
             <form onSubmit={handleSearch} className="hidden sm:flex items-center space-x-2">
@@ -27,9 +27,9 @@ const Navbar = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search products"
-                className="p-1 border border-gray-300 w-xl focus:outline-none rounded-2xl focus:ring-2 focus:ring-gray-300"
+                className="p-1 border border-gray-300 w-xl text-center focus:outline-none rounded-2xl hover:bg-gray-100 focus:ring-2 focus:ring-gray-300"
               />
-              <button type="submit" className="bg-black text-white p-1 rounded-sm hover:bg-gray-500">
+              <button type="submit" className="bg-black text-white p-1 rounded-xl w-20 h-9 hover:bg-gray-500">
                 Search
               </button>
             </form>
@@ -38,11 +38,12 @@ const Navbar = () => {
 
               
 
-              <a href="/signup" className="text-gray-700 hover:text-gray-900">LOGIN/SIGNUP</a>
-              <a href="/shop" className="text-gray-700 hover:text-gray-900">SHOP</a>
+              <a href="/signup" className="text-gray-400  hover:text-gray-900">LOGIN/SIGNUP</a>
+              
+              <a href="/cart" className="text-gray-400 hover:text-gray-900">ADMIN</a>
 
-              <a href="/cart" className="text-gray-700 hover:text-gray-900">CART</a>
-              <a href="/contact" className="text-gray-700 hover:text-gray-900">CONTACT</a>
+              <a href="/cart" className="text-gray-400 hover:text-gray-900">CART</a>
+              <a href="/contact" className="text-gray-400 hover:text-gray-900">CONTACT</a>
             </div>
 
             <button
@@ -57,8 +58,8 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="sm:hidden bg-white p-4">
             <a href="/" className="block text-gray-700 hover:text-gray-900 py-2">Home</a>
-            <a href="/shop" className="block text-gray-700 hover:text-gray-900 py-2">Shop</a>
-            <a href="/about" className="block text-gray-700 hover:text-gray-900 py-2">About</a>
+            <a href="/about" className="block text-gray-700 hover:text-gray-900 py-2">Cart</a>
+            <a href="/about" className="block text-gray-700 hover:text-gray-900 py-2">Admin</a>
             <a href="/contact" className="block text-gray-700 hover:text-gray-900 py-2">Contact</a>
           </div>
         )}
