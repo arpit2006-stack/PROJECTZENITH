@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png'
-
+import { TiShoppingCart } from "react-icons/ti";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -38,7 +38,7 @@ const Navbar = () => {
             <div className="hidden sm:flex items-center space-x-6">
             <a href="/signup" className="text-gray-400 hover:text-gray-900">LOGIN/SIGNUP</a>
             <a href="/admin" className="text-gray-400 hover:text-gray-900">ADMIN</a>
-            <a href="/cart" className="text-gray-400 hover:text-gray-900">CART</a>
+            <a href="/cart" className="text-gray-400 hover:text-gray-900 text-2xl" ><TiShoppingCart /></a>
 
   {/* Profile Icon */}
             <a href="/profile" className="flex items-center gap-2 text-gray-600 hover:text-black">
