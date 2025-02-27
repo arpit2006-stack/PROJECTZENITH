@@ -1,16 +1,12 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
 import axios from "../lib/axios";
 
-const AuthForm = () => {
-  const [isSignUp, setIsSignUp] = useState(true);
+const SignUpForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
-
-  const navigate = useNavigate();
   const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
@@ -32,28 +28,23 @@ const AuthForm = () => {
       console.log(error);
       alert(error.response.data.message);
     }
-
-    setMessage(isSignUp ? "Sign-up successful!" : "Login successful!");
+    // setMessage("Sign-up successful!");
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-300 to-purple-400">
+    <div className="flex items-center justify-center min-h-screen ">
       <div className="bg-white p-10 rounded-2xl shadow-2xl max-w-sm w-full border border-gray-200 transition-all duration-500 transform scale-100">
-        <h2 className="text-3xl font-bold text-center text-gray-800">
-          {isSignUp ? "Sign Up" : "Log In"}
-        </h2>
+        <h2 className="text-3xl font-bold text-center text-gray-800">Sign Up</h2>
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-          {isSignUp && (
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 shadow-sm"
-              required
-            />
-          )}
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 shadow-sm"
+            required
+          />
           <input
             type="email"
             name="email"
@@ -72,30 +63,20 @@ const AuthForm = () => {
             className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 shadow-sm"
             required
           />
+          <p>
+            Already have an account ? <a href="/login" className="text-blue-300">LOGIN</a>
+          </p>
           <button
             type="submit"
             className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 px-6 mt-4 rounded-lg hover:opacity-90 transition font-semibold text-lg shadow-md"
           >
-            {isSignUp ? "Sign Up" : "Log In"}
+            Sign Up
           </button>
         </form>
-        {message && (
-          <p className="mt-4 text-center text-green-600 font-semibold">
-            {message}
-          </p>
-        )}
-        <p className="mt-4 text-center text-gray-600">
-          {isSignUp ? "Already have an account?" : "Don't have an account?"}
-          <button
-            onClick={() => setIsSignUp(!isSignUp)}
-            className="text-blue-500 font-semibold ml-1 hover:underline"
-          >
-            <NavLink to="/login">{isSignUp ? "Log in" : "Sign up"}</NavLink>
-          </button>
-        </p>
+        {message && <p className="mt-4 text-center text-green-600 font-semibold">{message}</p>}
       </div>
     </div>
   );
 };
 
-export default AuthForm;
+export default SignUpForm;

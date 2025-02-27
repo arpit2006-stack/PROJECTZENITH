@@ -14,7 +14,12 @@ const Navbar = () => {
       <nav className="bg-white p-4 shadow-md">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
+<<<<<<< HEAD
             <div className="h-10 w-30"><img src={logo} alt="" /></div>
+=======
+            <div className="text-gray-900 text-2xl font-bold">
+              <a href="/">ZENITH</a></div>
+>>>>>>> 405ee09d46ce833e33d14192681ab2adab652585
 
             <form onSubmit={handleSearch} className="hidden sm:flex items-center space-x-2">
               <input
@@ -30,8 +35,13 @@ const Navbar = () => {
             </form>
 
             <div className="hidden sm:flex space-x-4">
+<<<<<<< HEAD
               <a href="/" className="text-gray-700 hover:text-gray-900">Login</a>
               <a href="/shop" className="text-gray-700 hover:text-gray-900">Shop</a>
+=======
+              <a href="/signup" className="text-gray-700 hover:text-gray-900">LOGIN/SIGNUP</a>
+              <a href="/shop" className="text-gray-700 hover:text-gray-900">SHOP</a>
+>>>>>>> 405ee09d46ce833e33d14192681ab2adab652585
               <a href="/cart" className="text-gray-700 hover:text-gray-900">CART</a>
               <a href="/contact" className="text-gray-700 hover:text-gray-900">CONTACT</a>
             </div>
