@@ -16,6 +16,11 @@ import AboutPage from "./pages/about";
 import ContactPage from "./pages/contact";
 import TermsAndConditions from "./pages/T&C";
 import AdminPanel from "./pages/admin";
+import Shirts from './pages/shirts';
+import TShirts from './pages/t-shirt';
+import Hoodies from "./pages/hoodies";
+import Watches from "./pages/watches";
+import Shoes from "./pages/shoes";
 function App() {
   return (
     <>
@@ -33,6 +38,11 @@ function App() {
           <Route path="/contact" element={<ContactPage/>} />
           <Route path="/t&c" element={<TermsAndConditions/>} />
           <Route path="/admin" element={<AdminPanel/>} />
+          <Route path="/shirts" element={<Shirts/>} />
+          <Route path="/t-shirt" element={<TShirts/>} />
+          <Route path="/hoodies" element={<Hoodies/>} />
+          <Route path="/watches" element={<Watches/>} />
+          <Route path="/shoes" element={<Shoes/>} />
         </Routes>
       </main>
       <footer>

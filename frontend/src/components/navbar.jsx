@@ -70,11 +70,20 @@ const Navbar = () => {
 
       <div className="bg-gray-50 py-2 shadow-sm">
         <div className="max-w-7xl mx-auto flex justify-center space-x-4">
-          <button className="bg-gray-50 px-17 py-1 rounded hover:bg-gray-200">Shirts</button>
-          <button className="bg-gray-50 px-17 py-1 rounded hover:bg-gray-200">T-Shirts</button>
+          <a href="/shirts" className="bg-gray-50 px-17 py-1 rounded hover:bg-gray-200">Shirt</a>
+          <a href="/t-shirt" className="bg-gray-50 px-17 py-1 rounded hover:bg-gray-200">T-Shirt</a>
+          <a href="/hoodies" className="bg-gray-50 px-17 py-1 rounded hover:bg-gray-200">Hoodies</a>
+          <a href="/watches" className="bg-gray-50 px-17 py-1 rounded hover:bg-gray-200">Watches</a>
+          <a href="shoes" className="bg-gray-50 px-17 py-1 rounded hover:bg-gray-200">Shoes</a>
+
+
+
+          
+          {/* <button className="bg-gray-50 px-17 py-1 rounded hover:bg-gray-200">Shirts</button> */}
+          {/* <button className="bg-gray-50 px-17 py-1 rounded hover:bg-gray-200">T-Shirts</button>
           <button className="bg-gray-50 px-17 py-1 rounded hover:bg-gray-200">Hoodies</button>
           <button className="bg-gray-50 px-17 py-1 rounded hover:bg-gray-200">Watches</button>
-          <button className="bg-gray-50 px-17 py-1 rounded hover:bg-gray-200">Shoes</button>
+          <button className="bg-gray-50 px-17 py-1 rounded hover:bg-gray-200">Shoes</button> */}
         </div>
       </div>
     </>
