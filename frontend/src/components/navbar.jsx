@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import logo from '../assets/logo.png'
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -14,7 +14,7 @@ const Navbar = () => {
       <nav className="bg-white p-4 shadow-md">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <div className="text-gray-900 text-2xl font-bold">ZENITH</div>
+            <div className="h-10 w-30"><img src={logo} alt="" /></div>
 
             <form onSubmit={handleSearch} className="hidden sm:flex items-center space-x-2">
               <input
@@ -22,7 +22,7 @@ const Navbar = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search products"
-                className="p-1 border border-gray-300 w-xl focus:outline-none rounded-sm focus:ring-2 focus:ring-gray-300"
+                className="p-1 border border-gray-300 w-xl focus:outline-none rounded-2xl focus:ring-2 focus:ring-gray-300"
               />
               <button type="submit" className="bg-black text-white p-1 rounded-sm hover:bg-gray-500">
                 Search
@@ -30,8 +30,8 @@ const Navbar = () => {
             </form>
 
             <div className="hidden sm:flex space-x-4">
-              <a href="/" className="text-gray-700 hover:text-gray-900">LOGIN</a>
-              <a href="/shop" className="text-gray-700 hover:text-gray-900">SHOP</a>
+              <a href="/" className="text-gray-700 hover:text-gray-900">Login</a>
+              <a href="/shop" className="text-gray-700 hover:text-gray-900">Shop</a>
               <a href="/cart" className="text-gray-700 hover:text-gray-900">CART</a>
               <a href="/contact" className="text-gray-700 hover:text-gray-900">CONTACT</a>
             </div>
