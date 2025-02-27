@@ -21,6 +21,7 @@ import TShirts from './pages/t-shirt';
 import Hoodies from "./pages/hoodies";
 import Watches from "./pages/watches";
 import Shoes from "./pages/shoes";
+// import CartPage from "./pages/cart";
 function App() {
   return (
     <>
@@ -43,6 +44,7 @@ function App() {
           <Route path="/hoodies" element={<Hoodies/>} />
           <Route path="/watches" element={<Watches/>} />
           <Route path="/shoes" element={<Shoes/>} />
+          {/* <Route path="/cart" element={<CartPage/>} /> */}
         </Routes>
       </main>
       <footer>
