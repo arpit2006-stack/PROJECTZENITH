@@ -11,7 +11,7 @@ import SignUpForm from "./pages/signup"
 import LoginForm from "./pages/login";
 import BrandSlider from "./components/sliderTwo";
 import Home from "./components/home";
-
+import CareerPage from "./pages/career";
 
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/login" element={<LoginForm/>} />
+          <Route path="/career" element={<CareerPage/>} />
         </Routes>
       </main>
       <footer>
