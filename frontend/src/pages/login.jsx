@@ -1,18 +1,34 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "../lib/axios"
 
 const LoginForm = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const data = new FormData();
+    data.append("email", email);
+    data.append("password", password);
+
+    try {
+      const response = await axios.post("/api/auth/login", { email, password });
+
+      alert(response.data.message);
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+      alert(error.response?.data?.message || "An error occurred.");
+    }
     setMessage("Login successful!");
   };
 
@@ -25,7 +41,8 @@ const LoginForm = () => {
             type="email"
             name="email"
             placeholder="Email"
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 shadow-sm"
             required
           />
@@ -33,10 +50,14 @@ const LoginForm = () => {
             type="password"
             name="password"
             placeholder="Password"
-            onChange={handleChange}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 shadow-sm"
             required
           />
+          <p>
+            Don't have an account ? <a href="/signup" className="text-blue-300">SIGNUP</a>
+          </p>
           <button
             type="submit"
             className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 px-6 mt-4 rounded-lg hover:opacity-90 transition font-semibold text-lg shadow-md"
