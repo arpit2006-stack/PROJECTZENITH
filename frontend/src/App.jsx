@@ -15,6 +15,7 @@ import CareerPage from "./pages/career";
 import AboutPage from "./pages/about";
 import ContactPage from "./pages/contact";
 import TermsAndConditions from "./pages/T&C";
+import AdminPanel from "./pages/admin";
 function App() {
   return (
     <>
@@ -31,6 +32,7 @@ function App() {
           <Route path="/about" element={<AboutPage/>} />
           <Route path="/contact" element={<ContactPage/>} />
           <Route path="/t&c" element={<TermsAndConditions/>} />
+          <Route path="/admin" element={<AdminPanel/>} />
         </Routes>
       </main>
       <footer>
