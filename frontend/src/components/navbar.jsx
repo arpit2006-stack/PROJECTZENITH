@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png'
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -34,17 +35,19 @@ const Navbar = () => {
               </button>
             </form>
 
-            <div className="hidden sm:flex space-x-4">
+            <div className="hidden sm:flex items-center space-x-6">
+            <a href="/signup" className="text-gray-400 hover:text-gray-900">LOGIN/SIGNUP</a>
+            <a href="/admin" className="text-gray-400 hover:text-gray-900">ADMIN</a>
+            <a href="/cart" className="text-gray-400 hover:text-gray-900">CART</a>
 
-              
-
-              <a href="/signup" className="text-gray-400  hover:text-gray-900">LOGIN/SIGNUP</a>
-              
-              <a href="/cart" className="text-gray-400 hover:text-gray-900">ADMIN</a>
-
-              <a href="/cart" className="text-gray-400 hover:text-gray-900">CART</a>
-              <a href="/contact" className="text-gray-400 hover:text-gray-900">CONTACT</a>
+  {/* Profile Icon */}
+            <a href="/profile" className="flex items-center gap-2 text-gray-600 hover:text-black">
+            <span className="flex items-center justify-center w-10 h-10 bg-black text-white font-semibold rounded-full">
+             AD
+            </span>
+            </a>
             </div>
+
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
