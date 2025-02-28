@@ -16,11 +16,10 @@ const Navbar = () => {
       <nav className="bg-white p-4 shadow-md">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-<<<<<<< HEAD
+
             
-            <div className="text-gray-900 text-2xl font-bold">
-              <a href="/">ZENITH</a></div>
-=======
+            {/* <div className="text-gray-900 text-2xl font-bold">
+              <a href="/">ZENITH</a></div> */}
 
             
 
@@ -28,7 +27,7 @@ const Navbar = () => {
               <a href="/"><img src={logo} alt="logo" /></a></div>
 
 
->>>>>>> a1b7d254a890fecad40c95b2e9fc34b3a4cce48d
+
             <form onSubmit={handleSearch} className="hidden sm:flex items-center space-x-2">
               <input
                 type="text"
@@ -42,28 +41,27 @@ const Navbar = () => {
               </button>
             </form>
 
-<<<<<<< HEAD
+
             <div className="hidden sm:flex space-x-4">
 
               {/* <a href="/" className="text-gray-700 hover:text-gray-900">Login</a> */}
-              <a href="/shop" className="text-gray-700 hover:text-gray-900">Shop</a>
+              {/* <a href="/shop" className="text-gray-700 hover:text-gray-900">Shop</a>
               <a href="/signup" className="text-gray-700 hover:text-gray-900">LOGIN/SIGNUP</a>
               <a href="/shop" className="text-gray-700 hover:text-gray-900">SHOP</a>
               <a href="/cart" className="text-gray-700 hover:text-gray-900">CART</a>
-              <a href="/contact" className="text-gray-700 hover:text-gray-900">CONTACT</a>
-=======
+              <a href="/contact" className="text-gray-700 hover:text-gray-900">CONTACT</a> */}
+
             <div className="hidden sm:flex items-center space-x-6">
             <a href="/signup" className="text-gray-400 hover:text-gray-900">LOGIN/SIGNUP</a>
             <a href="/admin" className="text-gray-400 hover:text-gray-900">ADMIN</a>
             <a href="/cart" className="text-gray-400 hover:text-gray-900 text-2xl" ><TiShoppingCart /></a>
 
-  {/* Profile Icon */}
+            {/* Profile Icon */}
             <a href="/profile" className="flex items-center gap-2 text-gray-600 hover:text-black">
             <span className="flex items-center justify-center w-10 h-10 bg-black text-white font-semibold rounded-full">
              AD
             </span>
             </a>
->>>>>>> a1b7d254a890fecad40c95b2e9fc34b3a4cce48d
             </div>
 
 
@@ -75,6 +73,7 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+        
 
         {isMenuOpen && (
           <div className="sm:hidden bg-white p-4">
@@ -84,6 +83,7 @@ const Navbar = () => {
             <a href="/contact" className="block text-gray-700 hover:text-gray-900 py-2">Contact</a>
           </div>
         )}
+      </div>
       </nav>
 
       <div className="bg-gray-50 py-2 shadow-sm">
