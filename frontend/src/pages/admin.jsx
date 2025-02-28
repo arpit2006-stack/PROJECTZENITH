@@ -1,12 +1,32 @@
 import React from 'react'
 
-const Adminpannel = () => {
-  return (
-    <>
-    
-    admin pannel
 
-    </>
+
+import Header from '../components/admin.header';
+import Sidebar from '../components/admin.sidebar';
+
+
+
+
+const Adminpannel = () => {
+  return (<>
+       <Header/>
+       <Sidebar/>
+       
+       
+      
+     
+       
+         
+  </>
+    
+      
+
+       
+      
+      
+    
+    
   )
 }
 
