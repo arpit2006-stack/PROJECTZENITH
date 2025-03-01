@@ -37,7 +37,7 @@ const Home = () => {
 
     <>
 
-    <img className='mt-5 ml-18 max-w-320' src={banner01} alt="" />
+    <a href="/t-shirt"><img className='mt-5 ml-18 max-w-320' src={banner01} alt="" /></a> 
 
     <div>
       {/* Banner Slider */}

@@ -9,7 +9,7 @@ export const addtocart = async (req, res) => {
         // const productid = req.inventory._id;
         // const { userId, productId } = req.body;// Get user ID & product ID from request
 
-        //  Find the product
+       
         const product = await Inventory.findById(productId);
         if (!product) {
             return res.status(404).json({
@@ -18,27 +18,27 @@ export const addtocart = async (req, res) => {
             });
         }
 
-         //  Find the user's cart
+         
         const userCart = await CartModel.findOne({ userId });
 
         if (!userCart) {
-            // Create new cart if it not exist
+           
             userCart = new CartModel({
                 userId,
                 products: [{ productId, quantity: 1 }],
                 total: product.price,
             });
         } else {
-            // Check if the product already exists in cart
+            
             const cartProduct = userCart.products.find((p) => p.productId.toString() === productId);
 
             if (cartProduct) {
-                cartProduct.quantity += 1;//Increase quantity if product exists
+                cartProduct.quantity += 1;
             } else {
-                userCart.products.push({ productId, quantity: 1 });  //Add new product
+                userCart.products.push({ productId, quantity: 1 });  
             }
 
-            // Update total price
+            
             userCart.total += product.price;
         }
 

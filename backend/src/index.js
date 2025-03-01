@@ -19,7 +19,7 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// ✅ Use authentication routes
+
 app.use("/api/auth", authRoutes);
 
 
